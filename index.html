@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#f8b4d9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2a0f1f" media="(prefers-color-scheme: dark)">
+  <meta name="msapplication-TileColor" content="#f8b4d9">
+
+  <title>Gửi tặng Bích Hiền 🐼💛</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="images/PandaFox-static.jpg" as="image">
+  <link rel="preload" href="images/memory2.png" as="image">
+  <link rel="preload" href="images/memory3.png" as="image">
+  <link rel="preload" href="images/memory4.png" as="image">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=6.4.0" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Style+Script&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js?v=1.5.1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css?v=1.0.0">
+</head>
+
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Lock Screen -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-container">
+      <div class="lock-simple" id="lockHeart">
+        <div class="lock-body" id="lockBody"></div>
+        <div class="lock-hole"></div>
+        <div class="lock-notch" id="lockNotch"></div>
+      </div>
+      
+      <div class="lock-body">
+        <h2>Enter the passcode</h2>
+        <div class="code-display" id="codeDisplay">
+          <div class="code-digit" id="digit1">-</div>
+          <div class="code-digit" id="digit2">-</div>
+          <div class="code-digit" id="digit3">-</div>
+          <div class="code-digit" id="digit4">-</div>
+        </div>
+        
+        <div class="lock-buttons">
+          <button class="lock-btn" data-number="1" title="Số 1" aria-label="Số 1">1</button>
+          <button class="lock-btn" data-number="2" title="Số 2" aria-label="Số 2">2</button>
+          <button class="lock-btn" data-number="3" title="Số 3" aria-label="Số 3">3</button>
+          <button class="lock-btn" data-number="4" title="Số 4" aria-label="Số 4">4</button>
+          <button class="lock-btn" data-number="5" title="Số 5" aria-label="Số 5">5</button>
+          <button class="lock-btn" data-number="6" title="Số 6" aria-label="Số 6">6</button>
+          <button class="lock-btn" data-number="7" title="Số 7" aria-label="Số 7">7</button>
+          <button class="lock-btn" data-number="8" title="Số 8" aria-label="Số 8">8</button>
+          <button class="lock-btn" data-number="9" title="Số 9" aria-label="Số 9">9</button>
+          <button class="lock-btn" id="clearBtn" title="Xóa tất cả" aria-label="Xóa tất cả"><i class="fas fa-undo"></i></button>
+          <button class="lock-btn" data-number="0" title="Số 0" aria-label="Số 0">0</button>
+          <button class="lock-btn" id="deleteBtn" title="Xóa ký tự cuối" aria-label="Xóa ký tự cuối"><i class="fas fa-backspace"></i></button>
+          
+          <button class="submit-code" id="submitCode" title="Mở khóa" aria-label="Mở khóa">Unlock <i class="fas fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+  </div>
+  
+  <!-- Music Player với thiết kế mới -->
+  <div class="music-player" id="musicPlayer">
+    <div class="now-playing" id="nowPlaying"><span>Chưa chọn bài hát</span></div>
+    <div class="song-artist" id="songArtist"><span></span></div>
+    
+    <div class="player-controls">
+      <button class="music-btn" id="prevBtn" title="Bài trước" aria-label="Bài trước">
+        <i class="fas fa-step-backward"></i>
+      </button>
+      <button class="music-btn" id="playPauseBtn" title="Phát/Tạm dừng" aria-label="Phát/Tạm dừng">
+        <i class="fas fa-play"></i>
+      </button>
+      <button class="music-btn" id="nextBtn" title="Bài tiếp" aria-label="Bài tiếp">
+        <i class="fas fa-step-forward"></i>
+      </button>
+    </div>
+    
+    <div class="additional-controls">
+      <button class="func-btn" id="replayOneBtn" title="Lặp lại bài hiện tại" aria-label="Lặp lại bài hiện tại">
+        <i class="fas fa-redo"></i>
+      </button>
+      <button class="func-btn" id="replayAllBtn" title="Lặp lại tất cả" aria-label="Lặp lại tất cả">
+        <i class="fas fa-infinity"></i>
+      </button>
+      <button class="func-btn" id="shuffleBtn" title="Phát ngẫu nhiên" aria-label="Phát ngẫu nhiên">
+        <i class="fas fa-random"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Audio Element -->
+  <audio id="audioElement" playsinline role="application" aria-label="Trình phát nhạc"></audio>
+
+  <!-- Hearts effect -->
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Screen 1 -->
+  <div class="screen hidden" id="screen1" id="main-content">
+    <h1>My one and only, my lifeline 💛💙</h1>
+          <img id="girlfriend-pic" src="images/PandaFox-static.jpg" alt="Cute Couple" data-static="images/PandaFox-static.jpg" data-animated="images/PandaFox-animated.gif" loading="eager" decoding="async" fetchpriority="high">
+    <button class="heart-button" onclick="goToScreen2()" aria-label="Tiếp tục">Dợ nhìn gì dạ? Bấm vào đây nè~</button>
+    
+    <div class="memory-note">
+      <i class="fas fa-heart" style="color: var(--accent); margin-right: 5px;"></i>
+      Lần đầu chúng ta gặp nhau...
+    </div>
+  </div>
+
+  <!-- Screen 2 -->
+  <div class="screen hidden" id="screen2">
+    <p id="message">Dù thế nào đi nữa, em cũng luôn cần chị!!!! 💞</p>
+    
+    <div class="countdown-container">
+      <p>Chúng ta đã bên nhau được:</p>
+      <div class="countdown">
+        <span id="years">0</span> năm 
+        <span id="months">0</span> tháng 
+        <span id="days">0</span> ngày
+      </div>
+    </div>
+    
+  <!-- Memory gallery -->
+    <div class="memory-gallery">
+      <div class="memory-item">
+        <img src="images/memory2.png" alt="Kỷ niệm 1" loading="eager" decoding="async">
+      </div>
+      <div class="memory-item">
+        <img src="images/memory3.png" alt="Kỷ niệm 2" loading="eager" decoding="async">
+      </div>
+      <div class="memory-item">
+        <img src="images/memory4.png" alt="Kỷ niệm 3" loading="eager" decoding="async">
+      </div>
+    </div>
+
+
+    <button class="heart-button" onclick="goToScreen3()" aria-label="Xem thư">Còn nữa đó 🦊</button>
+  </div>
+
+  <!-- Screen 3: Love Letter -->
+  <div class="screen hidden" id="screen3">
+    <h1>Thư Gửi Bích Hiền - Jade Aki 💌</h1>
+    
+    <div class="letter-wrapper">
+      <div class="love-letter" id="loveLetter">
+        <div class="letter-front">Đọc thư đi nè 🐼</div>
+        <div class="letter-back">
+          <div class="letter-content">
+            <div id="typedText"></div>
+          </div>
+          <div class="letter-seal"></div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="heart-button" onclick="safeBackToScreen2()" aria-label="Quay lại">Quay lại</button>
+  </div>
+
+  <script>
+    // ===== KHAI BÁO BIẾN TOÀN CỤC =====
+    const audio = document.getElementById('audioElement');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const songArtist = document.getElementById('songArtist');
+    const musicPlayer = document.getElementById('musicPlayer');
+    const replayOneBtn = document.getElementById('replayOneBtn');
+    const replayAllBtn = document.getElementById('replayAllBtn');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+    // const musicToggle = document.getElementById('music-toggle'); // Removed - element no longer exists
+    
+    let isPlaying = false;
+    let isUserInteracted = false;
+    let isReplayOne = false;
+    let isReplayAll = true;
+    let isShuffle = false;
+    let originalPlaylist = [];
+    let collapseTimeout;
+    const COLLAPSE_DELAY = 5000;
+    
+    // ===== PHẦN PLAYLIST =====
+    // ===== PHẦN PLAYLIST =====
+    const songs = [
+      { 
+        title: "Tình Yêu Cuồng Nhiệt Mùa Hè", 
+        src: "assets/audio/TinhYeuCuongNhietMuaHe.mp3", 
+        artist: "Lục Kiệt awr" 
+      },
+      { 
+        title: "Gõ Đáng Yêu Rồi Nhấn Phím 5", 
+        src: "assets/audio/GoDangYeuRoiNhanPhim5.mp3", 
+        artist: "" 
+      },
+      { 
+        title: "Tĩnh Lặng", 
+        src: "assets/audio/TinhLang.mp3", 
+        artist: "Đại Huyễn" 
+      },
+      { 
+        title: "Chia Cậu Một Nửa", 
+        src: "assets/audio/ChiaCauMotNua.mp3", 
+        artist: "Diệp Hận Thủy" 
+      },
+      { 
+        title: "Tình Yêu Của Em Không Có Dạo Đầu", 
+        src: "assets/audio/TinhYeuCuaEmKhongCoKhucDaoDau.mp3", 
+        artist: "Diệp Hy Nguyên" 
+      },
+      { 
+        title: "Vịnh Trăng Khuyết", 
+        src: "assets/audio/VinhTrangKhuyet.mp3", 
+        artist: "Đợi Một Chút Về Nhà Ngay" 
+      },
+      { 
+        title: "Dành Điều Tốt Đẹp Nhất Cho Em", 
+        src: "assets/audio/DanhDieuTotDepNhatChoEm.mp3", 
+        artist: "Dư Giai Vận" 
+      },
+      { 
+        title: "Mưa Tình Yêu", 
+        src: "assets/audio/MuaTinhYeu.mp3", 
+        artist: "Dương Thừa Lâm" 
+      },
+      { 
+        title: "Anh Rất Hạnh Phúc", 
+        src: "assets/audio/AnhRatHanhPhuc.mp3", 
+        artist: "Eric Chou" 
+      },
+      { 
+        title: "Xứng Đôi", 
+        src: "assets/audio/XungDoi.mp3", 
+        artist: "Giang Hạo Nam" 
+      },
+      { 
+        title: "Cặp Đôi Đẹp Nhất", 
+        src: "assets/audio/CapDoiDepNhat.mp3", 
+        artist: "Hắc Kỳ Tử" 
+      },
+      { 
+        title: "Kẹo Bông Gòn", 
+        src: "assets/audio/KeoBongGon.mp3", 
+        artist: "Hắc Kỳ Tử" 
+      },
+      { 
+        title: "Chìm Đắm", 
+        src: "assets/audio/ChimDam.mp3", 
+        artist: "Juggshots" 
+      },
+      { 
+        title: "Phép Màu Tình Yêu", 
+        src: "assets/audio/PhepMauTinhYeu.mp3", 
+        artist: "Kim Sa"
+      },
+      { 
+        title: "Từ Khóa", 
+        src: "assets/audio/TuKhoa.mp3", 
+        artist: "Lâm Tuấn Kiệt" 
+      },
+      { 
+        title: "Tháp Rơi Tự Do", 
+        src: "assets/audio/ThapRoiTuDo.mp3", 
+        artist: "LBI Lợi Bỉ" 
+      },
+      { 
+        title: "Anh Muốn Trở Thành", 
+        src: "assets/audio/AnhMuonTroThanh.mp3", 
+        artist: "Lục Kiệt awr" 
+      },
+      { 
+        title: "Gió Đêm Gặp Em", 
+        src: "assets/audio/GioDemGapEm.mp3", 
+        artist: "Lục Kiệt awr" 
+      },
+      { 
+        title: "Đêm Và Ngày", 
+        src: "assets/audio/DemVaNgay.mp3", 
+        artist: "Lưu Chí Giai, Đô Trí Văn" 
+      },
+      { 
+        title: "Minh Chứng Của Nhịp Đập Trái Tim", 
+        src: "assets/audio/MinhChungCuaNhipDapTraiTim.mp3", 
+        artist: "Lưu Nhân Ngữ" 
+      },
+      { 
+        title: "Mùa Hạ", 
+        src: "assets/audio/MuaHa.mp3", 
+        artist: "Lý Cửu Triết" 
+      },
+      { 
+        title: "Cần Một", 
+        src: "assets/audio/CanMot.mp3", 
+        artist: "Lý Nhuận Kỳ" 
+      },
+      { 
+        title: "Suất Hai Người Tốt Đẹp", 
+        src: "assets/audio/SuatHaiNguoiTotDep.mp3", 
+        artist: "Lý Tuấn Nghị" 
+      },
+      { 
+        title: "Át Chủ Bài", 
+        src: "assets/audio/AtChuBai.mp3", 
+        artist: "Maxterp1ce, Trâu Bái Bái" 
+      },
+      { 
+        title: "Vui Vẻ", 
+        src: "assets/audio/VuiVe.mp3", 
+        artist: "Nhậm Nhiên, Tiểu Lai Ca" 
+      },
+      { 
+        title: "Chầm Chậm", 
+        src: "assets/audio/ChamCham.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Có Chút", 
+        src: "assets/audio/CoChut.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Cô Gái", 
+        src: "assets/audio/CoGai.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Rất Cần", 
+        src: "assets/audio/RatCan.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Rất Thích Em", 
+        src: "assets/audio/RatThichEm.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Sở Thích", 
+        src: "assets/audio/SoThich.mp3", 
+        artist: "Nhan Nhân Trung" 
+      },
+      { 
+        title: "Bí Mật Của Anh", 
+        src: "assets/audio/BiMatCuaAnh.mp3", 
+        artist: "Nhan Nhân Trung, Echo" 
+      },
+      { 
+        title: "Gió Thổi Khi Nhớ Anh", 
+        src: "assets/audio/GioThoiKhiNhoAnh.mp3", 
+        artist: "Thiện Y Thuần" 
+      },
+      { 
+        title: "Lời Tỏ Tình Của Gió Đêm", 
+        src: "assets/audio/LoiToTinhCuaGioDem.mp3", 
+        artist: "Tinh Dã" 
+      },
+      { 
+        title: "Ngọn Gió Đêm Qua, Ánh Trăng Đêm Nay", 
+        src: "assets/audio/NgonGioDemQuaAnhTrangDemNay.mp3", 
+        artist: "Trang Kỳ Văn 29" 
+      },
+      { 
+        title: "Yêu Là Khắc Lãng Mạn Lên Từng Phút Giây", 
+        src: "assets/audio/YeuLaKhacLangManLenTungPhutGiay.mp3", 
+        artist: "Trâu Bái Bái" 
+      },
+      { 
+        title: "Hoang Tưởng Nội Tâm", 
+        src: "assets/audio/HoangTuongNoiTam.mp3", 
+        artist: "Trâu Bái Bái, Leggo" 
+      },
+      { 
+        title: "Đắm Chìm", 
+        src: "assets/audio/DamChim.mp3", 
+        artist: "Trâu Bái Bái, Pank" 
+      },
+      { 
+        title: "Em", 
+        src: "assets/audio/Em.mp3", 
+        artist: "Trịnh Nhuận Trạch" 
+      },
+      { 
+        title: "Ngang Qua Nhân Gian", 
+        src: "assets/audio/NgangQuaNhanGian.mp3", 
+        artist: "Úc Khả Duy" 
+      },
+      { 
+        title: "Có Chút Ngọt Ngào", 
+        src: "assets/audio/CoChutNgotNgao.mp3", 
+        artist: "Uông Tô Lang" 
+      },
+      { 
+        title: "Trời Hửng Nắng", 
+        src: "assets/audio/TroiHungNang.mp3", 
+        artist: "Uông Tô Lang" 
+      },
+      { 
+        title: "Chiếc Hộp Thời Gian", 
+        src: "assets/audio/ChiecHopThoiGian.mp3", 
+        artist: "Vĩnh Bân Ryan.B, Tùng Lâm Đồng elf" 
+      },
+      { 
+        title: "Cưng Chiều Che Chở", 
+        src: "assets/audio/CungChieuCheCho.mp3", 
+        artist: "Vương Lý Văn" 
+      },
+      { 
+        title: "Nhiệt Luyến Vị Kem", 
+        src: "assets/audio/NhietLuyenViKem.mp3", 
+        artist: "yihuik Dĩ Tuệ" 
+      },
+      { 
+        title: "Trà Đắng", 
+        src: "assets/audio/TraDang.mp3", 
+        artist: "yihuik Dĩ Tuệ; Aioz" 
+      }
+    ];
+
+    
+    let currentSongIndex = 0;
+    
+    // ===== HÀM XỬ LÝ AUDIO =====
+    function initAudio() {
+      // Hiển thị player ngay từ đầu
+      musicPlayer.style.display = 'flex';
+      
+      // Kiểm tra playlist
+      if (songs.length === 0) {
+        nowPlaying.querySelector('span').textContent = "Không có bài hát";
+        songArtist.querySelector('span').textContent = "";
+        return;
+      }
+      
+      // Sao chép playlist gốc
+      originalPlaylist = [...songs];
+      
+      // Thiết lập bài hát đầu tiên
+      audio.src = songs[currentSongIndex].src;
+      updateNowPlaying();
+      
+      // Sự kiện khi bài hát kết thúc
+      audio.addEventListener('ended', handleSongEnded);
+      
+      // Sự kiện play/pause
+      playPauseBtn.addEventListener('click', togglePlayPause);
+      
+      // Sự kiện chuyển bài
+      prevBtn.addEventListener('click', playPrevSong);
+      nextBtn.addEventListener('click', playNextSong);
+      
+      // Sự kiện cho các nút chức năng
+      replayOneBtn.addEventListener('click', toggleReplayOne);
+      replayAllBtn.addEventListener('click', toggleReplayAll);
+      shuffleBtn.addEventListener('click', toggleShuffle);
+      
+      // Kích hoạt chế độ mặc định
+      replayAllBtn.classList.add('active');
+      
+      // Sự kiện để reset timeout thu gọn
+      musicPlayer.addEventListener('mouseenter', resetCollapseTimeout);
+      musicPlayer.addEventListener('touchstart', resetCollapseTimeout);
+    }
+    
+    // Cập nhật thông tin bài hát
+    function updateNowPlaying() {
+      const song = songs[currentSongIndex];
+      
+      if (nowPlaying) nowPlaying.querySelector('span').textContent = song.title || 'Không có tiêu đề';
+      if (songArtist) songArtist.querySelector('span').textContent = song.artist || '';
+      
+      // Đợi một chút để DOM cập nhật trước khi kiểm tra
+      setTimeout(() => {
+      // Kiểm tra và áp dụng hiệu ứng chạy chữ nếu cần
+      checkAndApplyMarquee(nowPlaying);
+      checkAndApplyMarquee(songArtist);
+      }, 100);
+      
+      console.log('Đang phát:', song.title, '-', song.artist);
+    }
+    
+    // Kiểm tra và áp dụng hiệu ứng chạy chữ
+    function checkAndApplyMarquee(element) {
+      if (!element) return;
+      
+      const span = element.querySelector('span');
+      if (!span) return;
+      
+      // Reset tất cả classes và styles
+      element.classList.remove('marquee', 'long-text');
+      span.style.animation = 'none';
+      span.style.transform = 'translateX(0)';
+      span.style.paddingLeft = '0';
+      
+      // Force reflow
+      void span.offsetWidth;
+      
+      // Đợi một chút để đảm bảo DOM đã cập nhật
+      setTimeout(() => {
+        // Force layout calculation
+        span.style.display = 'inline-block';
+        span.style.width = 'auto';
+        span.style.whiteSpace = 'nowrap';
+      
+      // Kiểm tra nếu nội dung vượt quá chiều rộng
+        const containerWidth = element.offsetWidth;
+        const textWidth = span.scrollWidth;
+        
+        console.log('Container width:', containerWidth, 'Text width:', textWidth);
+        
+        if (textWidth > containerWidth && containerWidth > 0) {
+          // Sử dụng CSS-only approach
+          element.classList.add('long-text', 'marquee-active');
+          console.log('Applied marquee classes for scrolling effect');
+          
+          // Đảm bảo animation được kích hoạt
+          span.style.animation = 'marquee2 6s linear infinite';
+          
+          // Thêm event listener để pause khi hover (chỉ trên desktop)
+          if (window.matchMedia('(hover: hover)').matches) {
+            element.addEventListener('mouseenter', () => {
+              span.style.animationPlayState = 'paused';
+            });
+            element.addEventListener('mouseleave', () => {
+              span.style.animationPlayState = 'running';
+            });
+          }
+        }
+      }, 200);
+    }
+    
+    // Xử lý khi bài hát kết thúc
+    function handleSongEnded() {
+      if (isReplayOne) {
+        // Lặp lại bài hiện tại
+        audio.currentTime = 0;
+        audio.play();
+      } else if (isShuffle) {
+        // Phát bài hát ngẫu nhiên tiếp theo
+        playRandomSong();
+      } else {
+        // Phát bài tiếp theo trong danh sách
+        playNextSong();
+      }
+    }
+    
+    // Phát bài hát
+    async function playSong() {
+      try {
+        // Kiểm tra xem audio có src không
+        if (!audio.src) {
+          console.log('No audio source');
+          return;
+        }
+        
+        await audio.play();
+        isPlaying = true;
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        playPauseBtn.title = "Tạm dừng";
+        updateNowPlaying();
+        resetCollapseTimeout();
+      } catch (err) {
+        console.error("Lỗi phát nhạc:", err);
+        // Chỉ log lỗi AbortError nếu không phải do user interaction
+        if (err.name !== 'AbortError') {
+        if (nowPlaying) nowPlaying.querySelector('span').textContent = "Lỗi khi phát nhạc";
+        if (songArtist) songArtist.querySelector('span').textContent = "";
+        }
+      }
+    }
+    
+    // Tạm dừng bài hát
+    function pauseSong() {
+      audio.pause();
+      isPlaying = false;
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      playPauseBtn.title = "Phát";
+      resetCollapseTimeout();
+    }
+    
+    // Chuyển bài tiếp theo
+    function playNextSong() {
+      if (isShuffle) {
+        playRandomSong();
+        return;
+      }
+      
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      audio.src = songs[currentSongIndex].src;
+      updateNowPlaying();
+      playSong();
+    }
+    
+    // Chuyển bài trước
+    function playPrevSong() {
+      if (isShuffle) {
+        playRandomSong();
+        return;
+      }
+      
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      audio.src = songs[currentSongIndex].src;
+      updateNowPlaying();
+      playSong();
+    }
+    
+    // Phát bài hát ngẫu nhiên
+    function playRandomSong() {
+      if (!songs || songs.length === 0) {
+        console.log('No songs available');
+        return;
+      }
+      
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * songs.length);
+      } while (newIndex === currentSongIndex && songs.length > 1);
+      
+      currentSongIndex = newIndex;
+      
+      if (songs[currentSongIndex] && songs[currentSongIndex].src) {
+      audio.src = songs[currentSongIndex].src;
+      updateNowPlaying();
+      playSong();
+      } else {
+        console.log('Invalid song at index:', currentSongIndex);
+      }
+    }
+    
+    // Bật/tắt chế độ lặp lại một bài
+    function toggleReplayOne() {
+      isReplayOne = true;
+      isReplayAll = false;
+      
+      replayOneBtn.classList.add('active');
+      replayAllBtn.classList.remove('active');
+      
+      // Tắt shuffle nếu đang bật
+      if (isShuffle) {
+        toggleShuffle();
+      }
+      
+      resetCollapseTimeout();
+    }
+    
+    // Bật/tắt chế độ lặp lại tất cả
+    function toggleReplayAll() {
+      isReplayOne = false;
+      isReplayAll = true;
+      
+      replayOneBtn.classList.remove('active');
+      replayAllBtn.classList.add('active');
+      
+      resetCollapseTimeout();
+    }
+    
+    // Bật/tắt chế độ phát ngẫu nhiên
+    function toggleShuffle() {
+      isShuffle = !isShuffle;
+      
+      if (isShuffle) {
+        shuffleBtn.classList.add('active');
+        
+        // Tạo playlist ngẫu nhiên nhưng giữ bài hiện tại ở đầu
+        const currentSong = songs[currentSongIndex];
+        const shuffledSongs = [...songs]
+          .filter((_, i) => i !== currentSongIndex)
+          .sort(() => Math.random() - 0.5);
+        
+        // Đặt bài hiện tại ở đầu playlist
+        songs.length = 0;
+        songs.push(currentSong, ...shuffledSongs);
+      } else {
+        shuffleBtn.classList.remove('active');
+        
+        // Khôi phục playlist gốc
+        songs.length = 0;
+        songs.push(...originalPlaylist);
+        
+        // Tìm lại vị trí bài hát hiện tại
+        currentSongIndex = songs.findIndex(
+          song => song.src === audio.src
+        );
+      }
+      
+      resetCollapseTimeout();
+    }
+    
+    // Chuyển đổi play/pause
+    function togglePlayPause() {
+      if (isPlaying) {
+        pauseSong();
+      } else {
+        playSong();
+      }
+      isUserInteracted = true;
+    }
+    
+    // Thu gọn trình phát nhạc
+    function collapsePlayer() {
+      musicPlayer.classList.add('collapsed');
+    }
+    
+    // Mở rộng trình phát nhạc
+    function expandPlayer() {
+      musicPlayer.classList.remove('collapsed');
+    }
+    
+    // Reset timeout thu gọn
+    function resetCollapseTimeout() {
+      clearTimeout(collapseTimeout);
+      expandPlayer();
+      
+      // Đặt timeout mới để thu gọn sau 5 giây
+      collapseTimeout = setTimeout(() => {
+        if (isPlaying || !musicPlayer.classList.contains('collapsed')) {
+          collapsePlayer();
+        }
+      }, COLLAPSE_DELAY);
+    }
+    
+    // ===== PHẦN UNLOCK AUTOPLAY =====
+    // DOM elements
+    const lockScreenEl = document.getElementById("lockScreen");
+    const digit1 = document.getElementById("digit1");
+    const digit2 = document.getElementById("digit2");
+    const digit3 = document.getElementById("digit3");
+    const digit4 = document.getElementById("digit4");
+    const lockButtons = document.querySelectorAll(".lock-btn[data-number]");
+    const clearBtn = document.getElementById("clearBtn");
+    const deleteBtn = document.getElementById("deleteBtn");
+    const submitCodeBtn = document.getElementById("submitCode");
+    const starsContainer = document.getElementById("stars");
+    // const darkModeToggle = document.getElementById("dark-mode-toggle"); // Removed - element no longer exists
+    const heartsContainer = document.getElementById("hearts");
+    const body = document.body;
+    const gfPic = document.getElementById("girlfriend-pic");
+    const screen1 = document.getElementById("screen1");
+    const screen2 = document.getElementById("screen2");
+    const screen3 = document.getElementById("screen3");
+    const lockHeart = document.getElementById("lockHeart");
+    const lockBody = document.getElementById("lockBody");
+    const lockNotch = document.getElementById("lockNotch");
+    const loveLetter = document.getElementById("loveLetter");
+    const typedText = document.getElementById("typedText");
+    
+    let currentDigit = 0;
+    let enteredCode = [];
+
+    // Handle number buttons
+    lockButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        if (currentDigit < 4) {
+          const number = button.dataset.number;
+          enteredCode.push(number);
+          
+          switch(currentDigit) {
+            case 0:
+              digit1.textContent = number;
+              break;
+            case 1:
+              digit2.textContent = number;
+              break;
+            case 2:
+              digit3.textContent = number;
+              break;
+            case 3:
+              digit4.textContent = number;
+              break;
+          }
+          
+          currentDigit++;
+          
+          if (currentDigit === 4) {
+            checkCode();
+          }
+        }
+      });
+    });
+
+    // Delete button
+    deleteBtn.addEventListener("click", () => {
+      if (currentDigit > 0) {
+        enteredCode.pop();
+        currentDigit--;
+        
+        switch(currentDigit) {
+          case 0:
+            digit1.textContent = "-";
+            break;
+          case 1:
+            digit2.textContent = "-";
+            break;
+          case 2:
+            digit3.textContent = "-";
+            break;
+          case 3:
+            digit4.textContent = "-";
+            break;
+        }
+      }
+    });
+
+    // Clear button
+    clearBtn.addEventListener("click", () => {
+      currentDigit = 0;
+      enteredCode = [];
+      digit1.textContent = "-";
+      digit2.textContent = "-";
+      digit3.textContent = "-";
+      digit4.textContent = "-";
+    });
+
+    // Check passcode
+    function checkCode() {
+      const correctCode = ['1', '1', '0', '5'];
+      const isCorrect = enteredCode.length === correctCode.length && 
+                        enteredCode.every((val, index) => val === correctCode[index]);
+      
+      if (isCorrect) {
+        // Unlock animation
+        lockNotch.style.animation = "unlock 1s forwards";
+        lockBody.style.animation = "unlockBody 1s forwards";
+        lockNotch.classList.add("unlocked");
+        lockBody.classList.add("unlocked");
+        
+        // Confetti effect
+        createStars(50);
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#f8b4d9', '#fce4ec', '#ffffff'],
+        });
+        
+        // Hide lock screen
+        setTimeout(() => {
+          lockScreenEl.style.opacity = "0";
+          setTimeout(() => {
+            lockScreenEl.style.display = "none";
+            screen1.classList.remove("hidden");
+            screen1.classList.add("active");
+            
+            // Hiển thị player
+            musicPlayer.style.display = 'flex';
+            
+            // Autoplay music sau khi mở khóa
+            setTimeout(() => {
+              if (audio && !isPlaying) {
+                playRandomSong();
+              }
+            }, 1000);
+            
+            // Bắt đầu timeout thu gọn
+            resetCollapseTimeout();
+          }, 500);
+        }, 1500);
+      } else {
+        // Wrong code - shake effect
+        const codeDisplay = document.getElementById("codeDisplay");
+        codeDisplay.style.animation = "none";
+        void codeDisplay.offsetWidth;
+        codeDisplay.style.animation = "shake 0.5s";
+        
+        lockHeart.style.animation = "shake 0.5s";
+        setTimeout(() => {
+          lockHeart.style.animation = "none";
+        }, 500);
+        
+        // Reset code
+        setTimeout(() => {
+          currentDigit = 0;
+          enteredCode = [];
+          digit1.textContent = "-";
+          digit2.textContent = "-";
+          digit3.textContent = "-";
+          digit4.textContent = "-";
+        }, 500);
+      }
+    }
+
+    // Create stars effect
+    function createStars(count) {
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        
+        const size = Math.random() * 5 + 2;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 3 + 2;
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${posX}%`;
+        star.style.top = `${posY}%`;
+        star.style.animation = `twinkle ${duration}s linear ${delay}s infinite`;
+        
+        starsContainer.appendChild(star);
+      }
+    }
+
+    submitCodeBtn.addEventListener("click", checkCode);
+
+    // GIF hover effect
+    gfPic.addEventListener('mouseenter', function() {
+      this.src = this.dataset.animated;
+    });
+    
+    gfPic.addEventListener('mouseleave', function() {
+      this.src = this.dataset.static;
+    });
+    
+    // Anniversary counter
+    function updateAnniversaryCount() {
+      const anniversaryDate = new Date('2025-05-11');
+      const today = new Date();
+      
+      let years = today.getFullYear() - anniversaryDate.getFullYear();
+      let months = today.getMonth() - anniversaryDate.getMonth();
+      let days = today.getDate() - anniversaryDate.getDate();
+      
+      if (days < 0) {
+        months--;
+        const lastDay = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        days += lastDay;
+      }
+      
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      
+      document.getElementById('years').textContent = years;
+      document.getElementById('months').textContent = months;
+      document.getElementById('days').textContent = days;
+    }
+
+    // Create floating hearts
+    function createHearts() {
+      const colors = ['#f8b4d9', '#fce4ec', '#e91e63', '#f8b4d9', '#ff92a5'];
+      const emojis = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+      
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 5 + 5;
+        const size = Math.random() * 20 + 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        heart.style.left = `${posX}%`;
+        heart.style.animation = `floatHeart ${duration}s linear ${delay}s infinite`;
+        heart.style.fontSize = `${size}px`;
+        heart.style.color = color;
+        
+        heartsContainer.appendChild(heart);
+      }
+    }
+    
+    // Toggle dark mode
+    // darkModeToggle.addEventListener("click", () => {
+    //   body.classList.toggle("dark-mode");
+    //   darkModeToggle.innerHTML = body.classList.contains("dark-mode") ? 
+    //     '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    // });
+    
+    // Toggle music
+    // musicToggle.addEventListener("click", () => {
+    //   if (audio.paused) {
+    //     playSong();
+    //     musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+    //   } else {
+    //     pauseSong();
+    //     musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    //   }
+    // });
+    
+    // Navigate to screen 2
+    function goToScreen2() {
+      document.getElementById('screen1').classList.remove('active');
+      document.getElementById('screen1').classList.add('hidden');
+      
+      setTimeout(() => {
+        document.getElementById('screen2').classList.remove('hidden');
+        document.getElementById('screen2').classList.add('active');
+        
+        // Confetti effect
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#f8b4d9', '#fce4ec', '#ffffff'],
+        });
+        
+        // Update counter
+        updateAnniversaryCount();
+      }, 300);
+    }
+    
+    // Navigate to screen 3 (love letter)
+    function goToScreen3() {
+      document.getElementById('screen2').classList.remove('active');
+      document.getElementById('screen2').classList.add('hidden');
+      
+      setTimeout(() => {
+        document.getElementById('screen3').classList.remove('hidden');
+        document.getElementById('screen3').classList.add('active');
+        
+        // Confetti effect
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.3 },
+          colors: ['#f8b4d9', '#fff', '#fce4ec'],
+        });
+      }, 300);
+    }
+    
+    // Safe back to screen 2
+    function safeBackToScreen2() {
+      try {
+        const screen3 = document.getElementById('screen3');
+        const screen2 = document.getElementById('screen2');
+        
+        if (!screen3 || !screen2) {
+          console.error('Screen elements not found');
+          return;
+        }
+        
+        screen3.classList.remove('active');
+        screen3.classList.add('hidden');
+      
+      setTimeout(() => {
+          screen2.classList.remove('hidden');
+          screen2.classList.add('active');
+      }, 300);
+      } catch (error) {
+        console.error('Error in safeBackToScreen2:', error);
+      }
+    }
+    
+    // Back to screen 2
+    function backToScreen2() {
+      safeBackToScreen2();
+    }
+    
+    // Love letter interaction
+    if (loveLetter && typedText) {
+      const content = `Gửi đến Bích Hiền - dợ iu của em
+(˵˃ ᗜ ˂˵) Cảm ơn dợ đã tin tưởng, đến và yêu em🥺 
+Em yêu chị Hiền nhiều lắmmmmmmmmm😽
+Dù xa nhau, ít gặp được nhau, em vẫn luôn là con cáo của chị, là người yêu thương chị, là vợ chị🫶 
+Đừng lo về em nhé, em vẫn thế, vẫn yêu chị.
+Hy vọng chúng ta sẽ nắm tay nhau cùng đi hết chặng đường dài phía trước.
+Con cáo - mèo con của chị lúc nào cũng cần chị hết á!!!!
+Chị đòi xa em nữa thì em cắn chị đóoooooooooo
+Em yêu chị. Em yêu Bích Hiền.
+ヾ(≧ ▽ ≦)ゝCon cáo của chị - Phương Trâm`;
+      
+      let hasTyped = false;
+      
+      loveLetter.addEventListener("click", () => {
+        loveLetter.classList.toggle("opened");
+        
+        if (!hasTyped) {
+          // Start typing effect
+          let i = 0;
+          const typingEffect = setInterval(() => {
+            if (i < content.length) {
+              typedText.innerHTML += content.charAt(i) === '\n' ? '<br>' : content.charAt(i);
+              i++;
+              
+              // Auto scroll to bottom
+              typedText.parentElement.scrollTop = typedText.parentElement.scrollHeight;
+            } else {
+              clearInterval(typingEffect);
+              // Confetti effect when finished
+              confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.8 },
+                colors: ['#f8b4d9', '#fff', '#fce4ec'],
+              });
+            }
+          }, 30);
+          
+          hasTyped = true;
+        }
+      });
+    }
+    
+    // Initialize effects
+    createHearts();
+    initAudio();
+    
+    // Make memory note draggable
+    const memoryNote = document.querySelector('.memory-note');
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    memoryNote.onmousedown = dragMouseDown;
+    
+    function dragMouseDown(e) {
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
+    }
+    
+    function elementDrag(e) {
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      
+      const top = (memoryNote.offsetTop - pos2);
+      const left = (memoryNote.offsetLeft - pos1);
+      
+      if (top > 0 && top < window.innerHeight - 100 && 
+          left > 0 && left < window.innerWidth - 200) {
+        memoryNote.style.top = top + "px";
+        memoryNote.style.left = left + "px";
+      }
+    }
+    
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+    
+    // Thêm sự kiện resize để cập nhật hiệu ứng chạy chữ
+    window.addEventListener('resize', function() {
+      checkAndApplyMarquee(nowPlaying);
+      checkAndApplyMarquee(songArtist);
+    });
+    
+    // Test function để debug
+    function testMarquee() {
+      console.log('Testing marquee effect...');
+      if (nowPlaying) {
+        const span = nowPlaying.querySelector('span');
+        console.log('Now playing span:', span);
+        console.log('Text content:', span ? span.textContent : 'No span');
+        console.log('Container width:', nowPlaying.offsetWidth);
+        console.log('Text width:', span ? span.scrollWidth : 'No span');
+        
+        // Force layout calculation
+        if (span) {
+          span.style.display = 'inline-block';
+          span.style.width = 'auto';
+          span.style.whiteSpace = 'nowrap';
+          console.log('After force layout - Text width:', span.scrollWidth);
+          
+          // Test marquee effect
+          if (span.scrollWidth > nowPlaying.offsetWidth) {
+            console.log('Text is too long, applying marquee...');
+            nowPlaying.classList.add('long-text');
+            span.style.animation = 'marquee 8s linear infinite';
+            console.log('Marquee applied!');
+          }
+        }
+      }
+      if (songArtist) {
+        const span = songArtist.querySelector('span');
+        console.log('Artist span:', span);
+        console.log('Text content:', span ? span.textContent : 'No span');
+        console.log('Container width:', songArtist.offsetWidth);
+        console.log('Text width:', span ? span.scrollWidth : 'No span');
+        
+        // Force layout calculation
+        if (span) {
+          span.style.display = 'inline-block';
+          span.style.width = 'auto';
+          span.style.whiteSpace = 'nowrap';
+          console.log('After force layout - Text width:', span.scrollWidth);
+          
+          // Test marquee effect
+          if (span.scrollWidth > songArtist.offsetWidth) {
+            console.log('Artist text is too long, applying marquee...');
+            songArtist.classList.add('long-text');
+            span.style.animation = 'marquee 8s linear infinite';
+            console.log('Marquee applied!');
+          }
+        }
+      }
+    }
+    
+    // Gọi test function sau khi page load
+    setTimeout(testMarquee, 1000);
+    
+    // Function để force marquee effect
+    function forceMarquee() {
+      console.log('Forcing marquee effect...');
+      
+      if (nowPlaying) {
+        const span = nowPlaying.querySelector('span');
+        if (span) {
+          nowPlaying.classList.add('long-text', 'marquee-active');
+          span.style.animation = 'marquee2 6s linear infinite';
+          span.style.display = 'inline-block';
+          span.style.paddingLeft = '100%';
+          span.style.whiteSpace = 'nowrap';
+          console.log('Forced marquee for now playing');
+        }
+      }
+      
+      if (songArtist) {
+        const span = songArtist.querySelector('span');
+        if (span) {
+          songArtist.classList.add('long-text', 'marquee-active');
+          span.style.animation = 'marquee2 6s linear infinite';
+          span.style.display = 'inline-block';
+          span.style.paddingLeft = '100%';
+          span.style.whiteSpace = 'nowrap';
+          console.log('Forced marquee for song artist');
+        }
+      }
+    }
+    
+    // Register service worker
+    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+    
+    // Thêm nút home vào controls
+    const homeBtn = document.createElement('button');
+    homeBtn.className = 'control-btn';
+    homeBtn.innerHTML = '<i class="fas fa-home"></i>';
+    homeBtn.title = 'Về trang đầu';
+    homeBtn.setAttribute('aria-label', 'Về trang đầu');
+    homeBtn.onclick = function() {
+      // Confetti effect khi nhấn home
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.3 },
+        colors: ['#f8b4d9', '#fce4ec', '#ffffff'],
+      });
+      
+      // Ẩn tất cả screens
+      const screens = document.querySelectorAll('.screen');
+      screens.forEach(screen => {
+        screen.classList.remove('active');
+        screen.classList.add('hidden');
+      });
+      
+      // Hiển thị screen1 (trang đầu tiên)
+      setTimeout(() => {
+        const screen1 = document.getElementById('screen1');
+        if (screen1) {
+          screen1.classList.remove('hidden');
+          screen1.classList.add('active');
+          
+          // Thêm hiệu ứng đặc biệt cho trang đầu
+          const girlfriendPic = document.getElementById('girlfriend-pic');
+          if (girlfriendPic) {
+            girlfriendPic.style.animation = 'pulse 1s ease-in-out';
+            setTimeout(() => {
+              girlfriendPic.style.animation = '';
+            }, 1000);
+          }
+        }
+      }, 300);
+    };
+    
+    // Thêm nút debug (không cần thiết trong layout cuối cùng)
+    // const debugBtn = document.createElement('button');
+    // debugBtn.className = 'control-btn';
+    // debugBtn.innerHTML = '<i class="fas fa-eye"></i>';
+    // debugBtn.title = 'Debug buttons';
+    // debugBtn.setAttribute('aria-label', 'Debug buttons');
+    // debugBtn.onclick = debugButtons;
+    
+    // Thêm nút game 2048
+    const gameBtn = document.createElement('button');
+    gameBtn.className = 'control-btn';
+    gameBtn.innerHTML = '<i class="fas fa-gamepad"></i>';
+    gameBtn.title = 'Chơi game 2048';
+    gameBtn.setAttribute('aria-label', 'Chơi game 2048');
+    gameBtn.onclick = function() {
+      // Hiển thị thông báo nhỏ
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        z-index: 1000;
+        animation: slideIn 0.5s ease-out;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      `;
+      notification.textContent = '🎮 Mở game 2048...';
+      document.body.appendChild(notification);
+      
+      // Mở game 2048 trong tab mới
+      window.open('https://tracykmeou2048game.netlify.app/', '_blank');
+      
+      // Confetti effect khi mở game
+      confetti({
+        particleCount: 80,
+        spread: 60,
+        origin: { y: 0.4 },
+        colors: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4'],
+      });
+      
+      // Xóa thông báo sau 3 giây
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 3000);
+    };
+    
+    // Tạo controls-right container
+    const controlsRight = document.createElement('div');
+    controlsRight.className = 'controls-right';
+    document.body.appendChild(controlsRight);
+    
+    // Thêm nút home và game vào controls bên trái
+    document.querySelector('.controls').appendChild(homeBtn);
+    document.querySelector('.controls').appendChild(gameBtn);
+    
+    // Thêm nút theme
+    const themeBtn = document.createElement('button');
+    themeBtn.className = 'control-btn';
+    themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    themeBtn.title = 'Chuyển đổi theme';
+    themeBtn.setAttribute('aria-label', 'Chuyển đổi theme');
+    themeBtn.onclick = function() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      themeBtn.title = isDark ? 'Chuyển sang sáng' : 'Chuyển sang tối';
+      
+      // Confetti effect
+      confetti({
+        particleCount: 50,
+        spread: 40,
+        origin: { y: 0.3 },
+        colors: isDark ? ['#2c3e50', '#34495e', '#7f8c8d'] : ['#f1c40f', '#f39c12', '#e67e22'],
+      });
+    };
+    
+    // Thêm nút nhạc
+    const musicBtn = document.createElement('button');
+    musicBtn.className = 'control-btn';
+    musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+    musicBtn.title = 'Bật/tắt nhạc';
+    musicBtn.setAttribute('aria-label', 'Bật/tắt nhạc');
+    musicBtn.onclick = function() {
+      const musicPlayer = document.querySelector('.music-player');
+      if (musicPlayer) {
+        const isVisible = musicPlayer.style.display !== 'none';
+        musicPlayer.style.display = isVisible ? 'none' : 'flex';
+        
+        if (!isVisible) {
+          // Auto play khi hiển thị
+          if (audio && !isPlaying) {
+            playRandomSong();
+          }
+        }
+      }
+      
+      // Confetti effect
+      confetti({
+        particleCount: 60,
+        spread: 50,
+        origin: { y: 0.3 },
+        colors: ['#e74c3c', '#f39c12', '#f1c40f'],
+      });
+    };
+    
+    // Thêm tất cả nút vào controls bên phải
+    document.querySelector('.controls-right').appendChild(themeBtn);
+    document.querySelector('.controls-right').appendChild(musicBtn);
+    
+    // Debug function để kiểm tra buttons
+    function debugButtons() {
+      console.log('Debugging buttons...');
+      
+      const buttons = document.querySelectorAll('button');
+      console.log('Total buttons found:', buttons.length);
+      
+      // Kiểm tra controls
+      const leftControls = document.querySelector('.controls');
+      const rightControls = document.querySelector('.controls-right');
+      console.log('Left controls buttons:', leftControls ? leftControls.children.length : 0);
+      console.log('Right controls buttons:', rightControls ? rightControls.children.length : 0);
+      
+      buttons.forEach((btn, index) => {
+        const rect = btn.getBoundingClientRect();
+        const styles = window.getComputedStyle(btn);
+        console.log(`Button ${index + 1}:`, {
+          tagName: btn.tagName,
+          className: btn.className,
+          id: btn.id,
+          title: btn.title,
+          visible: rect.width > 0 && rect.height > 0,
+          display: styles.display,
+          visibility: styles.visibility,
+          opacity: styles.opacity,
+          zIndex: styles.zIndex,
+          position: styles.position,
+          top: rect.top,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height,
+          textContent: btn.textContent.trim()
+        });
+      });
+    }
+    
+    // Gọi debug function sau khi page load
+    setTimeout(debugButtons, 2000);
+    
+    // Safe back to screen 2 function
+    function safeBackToScreen2() {
+      try {
+        const screen3 = document.getElementById('screen3');
+        const screen2 = document.getElementById('screen2');
+        
+        if (!screen3 || !screen2) {
+          console.error('Screen elements not found');
+          return;
+        }
+        
+        screen3.classList.remove('active');
+        screen3.classList.add('hidden');
+        
+        setTimeout(() => {
+          screen2.classList.remove('hidden');
+          screen2.classList.add('active');
+        }, 300);
+      } catch (error) {
+        console.error('Error in safeBackToScreen2:', error);
+      }
+    }
+    
+    // Override the old backToScreen2 function
+    window.backToScreen2 = safeBackToScreen2;
+  </script>
+</body>
+</html>
